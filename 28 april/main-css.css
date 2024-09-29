@@ -129,16 +129,20 @@ h3#hia {
 
 #slider {
   display: flex;
-  overflow: scroll;
+  overflow-x: auto; /* Change to horizontal scrolling */
   overflow-y: hidden;
-  width: 90%;
+  width: 100%; /* Full width of the container */
   margin: auto;
   padding: 20px 0;
   opacity: 0;
   transform: translateY(-20px) scale(0.5);
   transition: transform 1s ease, opacity 1s ease;
   scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+  scrollbar-width: none; /* For Firefox */
+}
+
+#slider::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
 }
 
 #slider p {
@@ -151,13 +155,15 @@ h3#hia {
   padding: 20px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 15px;
-  width: 80%;
+  width: 80vw; /* Each slide will now take 80% of the viewport width */
+  flex: none; /* Prevent shrinking */
   transition: background 0.5s ease;
 }
 
 #slider p:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
 
 span {
   margin-left: 5px;
